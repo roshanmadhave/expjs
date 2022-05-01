@@ -1,0 +1,17 @@
+const express = require("express");
+require("./db");
+const PatientRouter = require("./routes/patient.routes");
+const app = express();
+app.use(express.json());
+app.get("/", (req,res) => {
+
+    res.sendFile(__dirname + "/public/index.html")
+})
+
+app.use("/registerPatient", PatientRouter);
+
+
+
+
+
+module.exports = app;
